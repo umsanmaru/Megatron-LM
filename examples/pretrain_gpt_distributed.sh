@@ -59,6 +59,7 @@ GPT_ARGS="
     --num-experts 2 \
     --expert-model-parallel-size 1 \
     --use-distributed-optimizer \
+    --num-workers 16
 "
 # Arguments should vary by commit version
 
