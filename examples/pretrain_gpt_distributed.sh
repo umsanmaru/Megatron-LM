@@ -19,7 +19,7 @@ GPUS_PER_NODE=4 # testing 241205
 # # multinode
 MASTER_ADDR=10.0.2.15
 MASTER_PORT=23456
-NNODES=2
+NNODES=4
 NODE_RANK=0
 WORLD_SIZE=$(($GPUS_PER_NODE*$NNODES))
 
@@ -46,7 +46,7 @@ GPT_ARGS="
     --seq-length 512 \
     --max-position-embeddings 512 \
     --micro-batch-size 4 \
-    --global-batch-size 32 \
+    --global-batch-size 64 \
     --lr 0.00015 \
     --train-iters 500000 \
     --lr-decay-iters 320000 \
@@ -56,7 +56,7 @@ GPT_ARGS="
     --lr-warmup-fraction .01 \
     --clip-grad 1.0 \
     --use-mcore-models \
-    --num-experts 8 \
+    --num-experts 16 \
     --expert-model-parallel-size 1 \
     --use-distributed-optimizer \
 "
